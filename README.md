@@ -1,4 +1,5 @@
 **FreeRTOS LED Blinking Example on STM32**
+
 This repository contains an example program to demonstrate the use of FreeRTOS on STM32 for controlling LED blinking using two separate tasks: one for a green LED and another for a red LED. The program uses two tasks running concurrently with the help of FreeRTOS to simulate multitasking.
 
 **Description**
