@@ -30,6 +30,28 @@ This project demonstrates how to use FreeRTOS for multitasking on an STM32 micro
 - `cmsis_os.h`: FreeRTOS API header for STM32.
 - `stm32f4xx_hal.h`: STM32 HAL header for hardware abstraction.
 
+ ## How to Run
+
+1. Open the project in STM32CubeIDE or STM32CubeMX.
+2. Build and upload the firmware to the STM32 board.
+3. After programming, you should see:
+   - **Green LED** blinking every 500ms.
+   - **Red LED** blinking every 100ms.
+
+## Explanation of Key Functions
+
+- **`SystemClock_Config()`**: Configures the system clock to use the High-Speed Internal (HSI) oscillator.
+- **`MX_GPIO_Init()`**: Initializes the GPIO pins for the LEDs.
+- **`GreenLedTask()`**: Task to control the green LED. It turns on the green LED, calls `accessSharedData()` to toggle the shared flag, then turns off the green LED and delays for 500ms.
+- **`RedLedTask()`**: Task to control the red LED. It turns on the red LED, calls `accessSharedData()` to toggle the shared flag, then turns off the red LED and delays for 100ms.
+- **`accessSharedData()`**: Function to simulate access to shared data. It toggles the value of `startFlag` and controls the state of an additional GPIO pin (not used in the LED flashing logic).
+
+## Requirements
+
+- **STM32 Microcontroller**: This example is designed for STM32 boards (e.g., STM32F4 series).
+- **STM32CubeIDE or STM32CubeMX**: For building and programming the STM32 firmware.
+
+
 ## How to Run
 
 1. Clone the repository:
